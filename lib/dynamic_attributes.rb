@@ -27,7 +27,7 @@ end
 module DynamicAttributes
 
     # Overrides the initializer to take dynamic attributes into account
-    def initialize(attributes = nil,&block)
+    def initialize(attributes = nil,*some_shit,&block)
       dynamic_attributes = {}
       (attributes ||= {}).each{|att,value| dynamic_attributes[att] = value if att.to_s.starts_with?(self.dynamic_attribute_prefix) }
       super(attributes.except(*dynamic_attributes.keys))   
